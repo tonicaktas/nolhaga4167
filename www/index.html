@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <!-- <script src="js/server.js"></script> -->
+
+  </head>
+  <body ng-app="starter" ng-controller="left">
+<ion-side-menus>
+    <ion-side-menu-content>
+      <ion-header-bar class="bar-stable bar bar-header bar-dark">
+        <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
+
+        <h1 class="title">Nolhagagatan 41-67</h1>
+        <button class="button icon button-clear ion-locked" ng-click="showAlert()"></button>
+      </ion-header-bar>
+
+
+
+      <ion-nav-view>
+
+      <script type="text/ng-template" id="start.html" >
+        <ion-view view-title="start page title">
+          <ion-content class="content">
+            <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+
+    <div class="list">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+</div>
+<div class="list">
+
+  <a class="item item-thumbnail-left" href="#">
+    <img src="cover.jpg">
+    <h2>Pretty Hate Machine</h2>
+    <p>Nine Inch Nails</p>
+  </a>
+</div>
+
+<div class="list">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+</div>
+
+  </div>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="styrelse.html" >
+        <ion-view view-title="styrelse page title">
+          <ion-content class="styrelse">
+
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Kim</h2>
+      <h4>Ordförnade</h4>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Edin</h2>
+      <h4>Sekreterare</h4>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Toni</h2>
+      <h4>vice ordförnade</h4>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Christel</h2>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Tina</h2>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Lasse</h2>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+<div class="item item-avatar">
+      <img src="venkman.jpg">
+      <h2>Margaritta</h2>
+      <p>mob: 07611111</p>
+      <p>mail:kim@yahoo.com</p>
+
+</div>
+          <!-- <ion-list ng-controller="aboutController">
+              <ion-item ng-repeat="actor in actors">
+                <h2>{{actor}}</h2>
+              </ion-item>
+            </ion-list>-->
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="contact.html" >
+        <ion-view view-title="contact page title">
+          <ion-content class="padding">
+
+                    <div class="list">
+                  <label class="item item-input">
+                    <input type="text" placeholder="Namn">
+                  </label>
+                  <label class="item item-input">
+                    <input type="text" placeholder="Ingång">
+                  </label>
+                  <label class="item item-input">
+                    <input type="text" placeholder="Lägenhetsnummer">
+                  </label>
+                  <label class="item item-input">
+                    <textarea placeholder="Comments"></textarea>
+                  </label>
+                  <button class="button button-full button-balanced" type="submit">Skicka</button>
+                </div>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="infoblad.html" >
+        <ion-view view-title="infoblad page title">
+          <ion-content class="padding" ng-controller="infoblad">
+
+
+
+            <ion-slide-box>
+              <ion-slide>
+                 <div class = "box box2">
+                    <h1>Infoblad</h1>
+                    <p>Om infobladet</p>
+                 </div>
+              </ion-slide>
+
+   <ion-slide >
+      <div class = "box box1" ng-controller="AppCtrl">
+<button class = "button button-icon icon ion-navicon" ng-click="addInfo()">INFO</button>
+
+         <h1>1{{infoblad.header}}</h1>
+         <p>2{{infoblad.infotext1}}</p>
+      </div>
+   </ion-slide>
+
+   <ion-slide>
+      <div class = "box box2">
+         <h1>Info 2</h1>
+         <p>Lorem ipsum dolor sit amet,
+           consectetuer adipiscing elit.
+           Donec odio. Quisque volutpat mattis eros.
+           Nullam malesuada erat ut turpis.
+           Suspendisse urna nibh, viverra non,
+           semper suscipit, posuere a, pede.</p>
+      </div>
+   </ion-slide>
+
+   <ion-slide>
+      <div class = "box box3">
+         <h1>info 3</h1>
+         <p>Lorem ipsum dolor sit amet,
+           consectetuer adipiscing elit.
+           Donec odio. Quisque volutpat mattis eros.
+           Nullam malesuada erat ut turpis.
+           Suspendisse urna nibh, viverra non,
+           semper suscipit, posuere a, pede.</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class = "box box3">
+         <h1>Info 4</h1>
+         <p>Lorem ipsum dolor sit amet,
+           consectetuer adipiscing elit.
+           Donec odio. Quisque volutpat mattis eros.
+           Nullam malesuada erat ut turpis.
+           Suspendisse urna nibh, viverra non,
+           semper suscipit, posuere a, pede.</p>
+      </div>
+   </ion-slide>
+
+</ion-slide-box>
+<button class = "button button-icon icon ion-navicon" ng-click = "nextSlide()">Next</button>
+<button class = "button button-icon icon ion-navicon" ng-click = "goBack()">Back</button>
+
+
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="garage.html" >
+        <ion-view view-title="garage page title">
+          <ion-content class="padding">
+            Garage
+
+            <ul class="list">
+                <li class="item item-divider">Stor Garage</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+            <ul class="list">
+                <li class="item item-divider">Liten Garage</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="hyr.html" >
+        <ion-view view-title="hyr page title">
+          <ion-content class="padding">
+            <div class="list card">
+
+  <div class="item item-avatar">
+    <img src="mcfly.jpg">
+    <h2>Gästlägenhet</h2>
+    <p>Pris 200kr/natt</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+
+  </div>
+
+</div>
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="mcfly.jpg">
+    <h2>Lokal</h2>
+    <p>Pris 200kr/tillfälle</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+
+  </div>
+
+</div>
+<div class="list card">
+
+  <div class="item item-avatar">
+    <img src="mcfly.jpg">
+    <h2>Parkering</h2>
+    <p>30kr/dag</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+
+  </div>
+
+</div>
+          </ion-content class="content">
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="planer.html" >
+        <ion-view view-title="planer page title">
+          <ion-content class="padding">
+            Planer och pågoende projekt
+            <div class="card">
+              <h4>Pågoende projekt</h4>
+  <div class="item item-text-wrap">
+    This is a basic Card which contains an item that has wrapping text.
+  </div>
+  <div class="item item-text-wrap">
+    This is a basic Card which contains an item that has wrapping text.
+  </div>
+  <div class="item item-text-wrap">
+    This is a basic Card which contains an item that has wrapping text.
+  </div>
+  <h4>Ideer och diskutioner</h4>
+<div class="item item-text-wrap">
+This is a basic Card which contains an item that has wrapping text.
+</div>
+<div class="item item-text-wrap">
+This is a basic Card which contains an item that has wrapping text.
+</div>
+<div class="item item-text-wrap">
+This is a basic Card which contains an item that has wrapping text.
+</div>
+</div>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="helgus.html" >
+        <ion-view view-title="helgus page title">
+          <ion-content class="padding">
+            <div class="list card">
+
+  <div class="item item-avatar">
+
+    <h2>Helgus gruppen</h2>
+    <p>tel:033 201822</p>
+    <p>mail:helgus@yahoo.com</p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="delorean.jpg">
+
+      <p>Kontakt person 1</p>
+      <p>Kontakt person 2</p>
+        <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+
+  </div>
+
+</div>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script type="text/ng-template" id="vader.html" >
+        <ion-view  view-title="vader page title">
+          <ion-content  ng-class="bild()">
+            <div ng-controller="vader" data-ng-init="loadData(); regn()">
+
+              <ion-side-menu  ng-repeat="data in timeseries" side="right">
+              <ion-list >
+                <list-item >
+                    <h3 ng-click="v1()">Idag</h3>
+                    <div ng-class="bild()" ng-show="visa1">
+
+                            <p>Temperatur: {{ data[0].t }}c</p>
+                            <p>Vind: {{data[0].ws }}</p>
+                            <p>Regn: {{data[0].pcat}}</p>
+
+                          </div>
+                          </list-item>
+                          <br>
+
+                <list-item>
+                  <h3 ng-click="v2()">Imorgon</h3>
+                  <div ng-class="bild()" ng-show="visa2">
+                            <p>Temperatur:{{ data[1].t }}</p>
+                            <p>Vind: {{data[1].ws }}</p>
+                            <p>Regn: {{data[1].pcat}}</p>
+                            <p>{{r}}</p>
+                          </div>
+                        </list-item><br>
+                <list-item>
+                  <h3 ng-click="v3()">Överimorgon</h3>
+                  <div ng-class="bild()" ng-show="visa3">
+                            <p>Temperatur: {{ data[2].t }}</p>
+                            <p>Vind: {{data[2].ws }}</p>
+                            <p>Regn: {{data[2].pcat}}</p>
+                            <p>{{r}}</p>
+                  </div>
+                          </list-item>
+
+
+
+              </ion-list>
+            </ion-side-menu>
+            </div>
+
+          </ion-content>
+        </ion-view>
+      </script>
+
+
+
+
+<div class="bar bar-footer bar-dark">
+  <i ui-sref="contact" class="icon ion-email"></i>
+  <i ui-sref="start" class="icon ion-home"></i>
+  <i ui-sref="vader" class="icon ion-umbrella"></i>
+</div>
+
+
+  </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+      <ion-list>
+        <ion-item>
+        <ion-header-bar class="sidemenu bar-stable bar bar-header ">Menu</ion-header-bar>
+      </ion-item>
+      </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="start">Home</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="styrelse">Styrelse</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="infoblad">Infoblad</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="garage">Garage</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="hyr">Hyr</ion-item>
+        </ion-list>
+        <ion-list>
+
+          <ion-item menu-close ui-sref="contact">Kontakt</ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item menu-close ui-sref="planer">Planer</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="helgus">Helgus</ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item menu-close ui-sref="vader" id="g">Väder</ion-item>
+        </ion-list>
+      </ion-side-menu>
+</ion-side-menus>
+
+</ion-nav-view>
+
+
+  </body>
+</html>

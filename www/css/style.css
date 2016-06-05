@@ -1,0 +1,106 @@
+/* Empty. Add your own CSS if you like */
+.main {
+  background-color:;
+  margin-top:30px;
+
+}
+.content {
+  margin-bottom:15%;
+
+}
+
+.left {
+  background-color: grey;
+
+}
+h3 {
+  background: green;
+  width:100%;
+  text-align: center;;
+}
+
+.a {
+  border: 1px solid black;
+  background: url(../img/cloudy.jpg) no-repeat;
+  background-size: cover;
+}
+.soligt {
+
+  background: url(../img/soligt.jpg) no-repeat;
+  color: white;
+  height:300px;
+}
+.molnigt {
+  background: url(../img/cloudy.jpg) no-repeat;
+  background-size: cover;
+  height:300px;
+}
+.sno {
+  background:black;
+  background-image: url(../img/images.jpg);
+  color:white;
+}
+.snoandrain {
+  background: grey;
+}
+.regn {
+  background: blue;
+}
+.drizzle {
+  background: green;
+}
+.isregn {
+  background: red;
+}
+.isregndrizzle {
+  background: pink;
+}
+
+
+
+
+.ion-email {
+  font-size:30px;
+  padding-left:30px;
+}
+.ion-home {
+  font-size:30px;
+  margin:0 auto;
+}
+.ion-umbrella {
+  font-size:30px;
+  padding-right:30px;
+
+}
+.sidemenu {
+
+font-size: 20px;
+padding-left:50%;
+
+}
+.styrelse {
+  margin-bottom:15%;
+
+}
+button {
+  text-align: center;
+  color:white;
+  padding:2%;
+  border-radius:7px;
+  background-color: green;
+}
+.info1 {
+  height:300px;
+  border:1px solid grey;
+  text-align: center;
+
+}
+.lastDivInfoblad {
+  margin-bottom: 20%;
+
+}
+.box1, .box2, .box3 {
+   height: 500px;
+   padding:1%;
+   font-size: 1.1em;
+}
