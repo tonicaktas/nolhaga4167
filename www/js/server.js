@@ -47,19 +47,31 @@ app.get('/infoblad',function(req,res){ // ger req till route
   });// hämtar data från db.infoblad
 
 		});
+    app.get('/infoblad/:id',function(req,res){ // hämtar bloggen till formulär för editering
+    	var id = req.params.id;
+
+    	db.infoblad.findOne({_id: mongojs.ObjectId(id)},function(err,doc){
+    		res.json(doc);
+        
+    		});
+    	});
 
     app.put('/infoblad/:id', function(req,res){
     	var id = req.params.id;
-      console.log(1)
-    	db.cl.findAndModify({query: {_id: mongojs.ObjectId(id)},// väljer object det vi vill ändra
-    		update: {$set: {
-                header: req.body.header,
+      console.log(id + 2);
+    	db.infoblad.findAndModify({query: {_id: mongojs.ObjectId(id)},// väljer object det vi vill ändra
+    		update: {$set: { header: req.body.header,
     						infotext: req.body.infotext}},
     		new: true}, function(err, doc){
-    			res.json(docs);
-          console.log(docs)
+    			res.json(doc);
     			});
     	});
+
+
+
+
+
+
 //module.exports = router;
 app.listen(8000,(err)=>{
   if(err){

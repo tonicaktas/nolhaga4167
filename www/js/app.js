@@ -126,88 +126,42 @@ app.controller('infoblad',function($scope, $http, $ionicSlideBoxDelegate){
   //här
   $http.get('http://localhost:8000/infoblad')
   .success(function(response){
-    console.log('1')
-    console.log("response",response);
+
     $scope.newInfo = response;
+    console.log($scope.newInfo);
+
   })
-  $scope.nextSlide = function(){
-    $ionicSlideBoxDelegate.next();
-  }
-  $scope.goBack = function(){
-    $ionicSlideBoxDelegate.previous();
-  };
+
   $scope.visa = false;
     $scope.openn = function() {
         $scope.visa = !$scope.visa;
+};
 
+var refresha = function() {	// kör en refresh page när man klickar på button så att input data hamnar på sidan
+$http.get('http://localhost:8000/infoblad/').success(function(response){
+
+	$scope.infoblad = response;
+	$scope.info = "";
+	});
+};
+
+
+$scope.edit = function(id){ // editera objekt med hjälp av id
+  console.log(id)
+	$http.get('http://localhost:8000/infoblad/' + id).success(function(response){
+		$scope.info = response;	 // lägger in objekt i input boxar
+    console.log($scope.info)
+    console.log($scope.info.header)
+	});
 	};
 
   $scope.update = function() { // allt som är i input boxar skickas till server
-	$http.put('http://localhost:8000/infoblad' + $scope.infoblad._id, $scope.infoblad).success(function(response){
+	$http.put('http://localhost:8000/infoblad/' + $scope.info._id, $scope.info).success(function(response){
 		});
-
+    refresha();
 	};
-});
-
-/*app.controller('newinfo',['$scope','$http',function($scope, $http){
-  console.log("addInfo(1)")
-  $scope.add = function(){
-    $http.post('/#/infoblad',$scope.infoblad).success(function(response){
-      console.log("addInfo(2)")
-    });
-  }
-
-}])*/
 
 
-app.config(function($stateProvider,$urlRouterProvider) {
 
-  $stateProvider.state("start", {
-    url: "/",
-    templateUrl: "start.html"
-  });
-
-  $stateProvider.state("infoblad", {
-    url: "/infoblad",
-    templateUrl: "infoblad.html"
-  });
-
-
-  $stateProvider.state("styrelse", {
-    url: "/styrelse",
-    templateUrl: "styrelse.html"
-  });
-
-  $stateProvider.state("garage", {
-    url: "/garage",
-    templateUrl: "garage.html"
-  });
-
-  $stateProvider.state("hyr", {
-    url: "/hyr",
-    templateUrl: "hyr.html"
-  });
-
-  $stateProvider.state("contact", {
-    url: "/contact",
-    templateUrl: "contact.html"
-  });
-
-  $stateProvider.state("planer", {
-    url: "/planer",
-    templateUrl: "planer.html"
-  });
-
-  $stateProvider.state("helgus", {
-    url: "/helgus",
-    templateUrl: "helgus.html"
-  });
-
-  $stateProvider.state("vader", {
-    url: "/vader",
-    templateUrl: "vader.html"
-  });
-
-  $urlRouterProvider.otherwise("/");
 
 });

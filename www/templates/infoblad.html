@@ -1,0 +1,28 @@
+<ion-view view-title="infoblad page title">
+  <ion-content class="infoblad" ng-controller="infoblad">
+
+    <table class="table" ng-show="visa">
+            	<thead>
+                	<tr>
+                    	<tr><td>Header<input ng-model="info.header"></td></tr>
+                        <tr><td>Infotext<textarea ng-model="info.infotext"></textarea></td></tr>
+
+                        <td><button ng-click="update(); openn();">Update</button>&nbsp;&nbsp;
+                        <tr><th>&nbsp;</th></tr>
+
+                    </tr>
+
+                </thead>
+                </table>
+
+<div ng-repeat="info in newInfo">
+<h1>{{info.header}}</h1>
+<p>{{info.infotext}}</p>
+
+
+<button ng-click="edit(info._id); openn();">Edit</button>
+</div>
+
+
+  </ion-content>
+</ion-view>

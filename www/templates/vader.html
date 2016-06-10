@@ -1,0 +1,40 @@
+<ion-view  view-title="vader page title">
+  <ion-content  ng-class="bild()">
+    <div ng-controller="vader" data-ng-init="loadData(); regn()">
+
+      <ion-side-menu  ng-repeat="data in timeseries" side="right">
+      <ion-list>
+        <list-item >
+            <h3 ng-click="v1()">Idag</h3>
+            <div ng-class="bild()" ng-show="visa1">
+
+                    <p>Temperatur: {{ data[0].t }}c</p>
+                    <p>Vind: {{data[0].ws }}</p>
+                    <p>Regn: {{data[0].pcat}}</p>
+
+                  </div>
+                  </list-item>
+                  <br>
+
+        <list-item>
+          <h3 ng-click="v2()">Imorgon</h3>
+          <div ng-class="bild()" ng-show="visa2">
+                    <p>Temperatur:{{ data[1].t }}</p>
+                    <p>Vind: {{data[1].ws }}</p>
+                    <p>Regn: {{data[1].pcat}}</p>
+                    <p>{{r}}</p>
+                  </div>
+                </list-item><br>
+        <list-item>
+          <h3 ng-click="v3()">Överimorgon</h3>
+          <div ng-class="bild()" ng-show="visa3">
+                    <p>Temperatur: {{ data[2].t }}</p>
+                    <p>Vind: {{data[2].ws }}</p>
+                    <p>Regn: {{data[2].pcat}}</p>
+                    <p>{{r}}</p>
+          </div>
+                  </list-item>
+
+
+
+      </ion-list>
