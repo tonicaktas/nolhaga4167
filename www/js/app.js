@@ -1,3 +1,5 @@
+
+
 var app = angular.module('starter', ['ionic'])
 
 app.run(function($ionicPlatform) {
@@ -13,15 +15,7 @@ app.run(function($ionicPlatform) {
   });
 })
 
-app.controller('AppCtrl',['$scope','$http',function($scope, $http){
-  console.log("addInfo(1)")
-  $scope.addInfo = function(){
-    $http.post('/ionic-lab/',$scope.infoblad).success(function(response){
-      console.log("addInfo(2)")
-    });
-  }
 
-}])
 
 app.controller('left',function($scope, $ionicSideMenuDelegate, $ionicPopup){
   $scope.toggleLeft = function() {
@@ -30,12 +24,27 @@ app.controller('left',function($scope, $ionicSideMenuDelegate, $ionicPopup){
   $scope.toggleRight = function() {
     $ionicSideMenuDelegate.toggleRight()
   }
-  $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: 'Don\'t eat that!',
-     template: 'It might taste good'
+  /*$scope.showAlert = function() {
+   var alertPopup = $ionicPopup.show({
+     title: 'Updatera Infoblad',
+     template: '<input type = "text" placeholder="header1" ng-model ="info.header1"><br><textarea placeholder="infotext1" type="text" ng-model="info.infotext1">',
+     buttons: [
+            { text: 'Cancel' }, {
+               text: '<b>Updatera</b>',
+               type: 'button-positive',
+                  onTap: function(e) {
+
+                     if (!$scope.data.model) {
+                        //don't allow the user to close unless he enters model...
+                           e.preventDefault();
+                     } else {
+                        return $scope.data.model;
+                     }
+                  }
+            }
+         ]
    });
- };
+ };*/
 })
 
 app.controller('vader', function($scope, $http){
@@ -48,17 +57,18 @@ app.controller('vader', function($scope, $http){
     }).then(function sucessCallback(response){
       console.log(response.data);
       console.log(response.data.timeseries[6].t);
+
       var ned = response.data.timeseries[6].pcat;
       var mol = response.data.timeseries[6].tcc;
-      console.log(ned);
-        console.log(1);
+
+
 
       $scope.bild = function(){
 
            if(ned == 0 && mol == 0)
         return "soligt";
       else if(ned == 0 && mol > 2)
-      return "molnigt"
+      return "molnigt";
      else if(ned == 1)
         return "sno";
       else if(ned == 2)
@@ -112,15 +122,42 @@ app.controller('vader', function($scope, $http){
 
 });
 
-app.controller('infoblad',function($scope,$ionicSlideBoxDelegate){
+app.controller('infoblad',function($scope, $http, $ionicSlideBoxDelegate){
+  //här
+  $http.get('http://localhost:8000/infoblad')
+  .success(function(response){
+    console.log('1')
+    console.log("response",response);
+    $scope.newInfo = response;
+  })
   $scope.nextSlide = function(){
     $ionicSlideBoxDelegate.next();
   }
   $scope.goBack = function(){
     $ionicSlideBoxDelegate.previous();
   };
-})
+  $scope.visa = false;
+    $scope.openn = function() {
+        $scope.visa = !$scope.visa;
 
+	};
+
+  $scope.update = function() { // allt som är i input boxar skickas till server
+	$http.put('http://localhost:8000/infoblad' + $scope.infoblad._id, $scope.infoblad).success(function(response){
+		});
+
+	};
+});
+
+/*app.controller('newinfo',['$scope','$http',function($scope, $http){
+  console.log("addInfo(1)")
+  $scope.add = function(){
+    $http.post('/#/infoblad',$scope.infoblad).success(function(response){
+      console.log("addInfo(2)")
+    });
+  }
+
+}])*/
 
 
 app.config(function($stateProvider,$urlRouterProvider) {
@@ -173,18 +210,4 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/");
 
-});
-app.controller('aboutController',function($scope){
-    $scope.actors = [
-            "Scarlett Johansson",
-            "Paul Bettany",
-            "Emily VanCamp",
-            "Paul Rudd",
-            "Chris Evans",
-            "Robert Downey Jr.",
-            "Elizabeth Olsen",
-            "Anthony Mackie",
-            "Don Cheadle",
-            "Jeremy Renner"
-    ];
 });

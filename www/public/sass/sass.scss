@@ -1,0 +1,104 @@
+$bg: #ccc222;
+$transparentblack: rgba(0,0,0,.50);
+$ff: 'arial';
+
+@import 'colors';
+@import 'mixins';
+@import 'fonts';
+
+
+
+
+.content {
+    .view {
+      margin-bottom:100px;
+    }
+    .title{
+      position: fixed;
+      top:150px;
+      color:white;
+      text-align: center;
+      background-color:$transparentblack;
+      font-size: 2.5em;
+      width: 100%;
+    }
+    img {
+      padding:0px;
+
+      height:500px;
+    }
+    p {
+    color:blue;
+
+    @include border-radius(5px);
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: $sigmarOne;
+
+  padding:0px;
+  height:100px;
+    span {
+      background-color: gold;
+      font-family: $varelaRound;
+      text-transform: lowercase;
+      color:black;
+
+  }
+}
+.bar {
+  background-color: gold;
+  border-top:2px solid black;
+  .icon {
+    font-size:40px;
+    margin-top:-5px;
+  }
+  .ion-email{
+    margin-left:10px;
+
+  }
+  .ion-home {
+    margin:-5px auto ;
+  }
+  .ion-umbrella{
+    margin-right:10px;
+  }
+}
+
+.box {
+  height:400px;
+}
+
+.infoblad {
+  /*background: rgba(255,215,0, 1);*/
+  background: white;
+
+  button {
+    margin-left:20%;
+    margin-bottom:10%;
+    background-color: black;
+    color:gold;
+  }
+  .ion-locked {
+    width:80%;
+    margin: 0 auto;;
+    left:10%;
+  }
+  .form {
+    border:1px solid black;
+    background: gold;
+    margin-top:10px;
+  }
+  input {
+    width:100%;
+    background: black;
+    color:white;
+  }
+  textarea {
+    width:100%;
+    background: black;
+    color:white;
+  }
+}

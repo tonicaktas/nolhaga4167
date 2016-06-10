@@ -1,4 +1,10 @@
 {
   "name": "ngApp",
-  "app_id": ""
+  "app_id": "6597e4ac",
+  "proxies": [
+    {
+      "path": "/*",
+      "proxyUrl": "http://localhost:8000"
+    }
+  ]
 }

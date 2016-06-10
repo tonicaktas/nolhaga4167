@@ -6,7 +6,8 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -17,31 +18,33 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <!-- <script src="js/server.js"></script> -->
+    <!--<script src="js/server.js"></script>
+    <script src="js/controller.js"></script>-->
 
   </head>
   <body ng-app="starter" ng-controller="left">
 <ion-side-menus>
     <ion-side-menu-content>
-      <ion-header-bar class="bar-stable bar bar-header bar-dark">
+      <ion-header-bar ng-app="header" class="bar-stable bar bar-header bar-dark">
         <button class="button icon button-clear ion-navicon-round" ng-click="toggleLeft()"></button>
 
-        <h1 class="title">Nolhagagatan 41-67</h1>
-        <button class="button icon button-clear ion-locked" ng-click="showAlert()"></button>
+        <h1 hide-header="" class="title">Nolhaga<span>gatan</span> 41-67</h1>
+
       </ion-header-bar>
 
 
 
       <ion-nav-view>
 
-      <script type="text/ng-template" id="start.html" >
+      <script type="text/ng-template" id="start.html">
         <ion-view view-title="start page title">
           <ion-content class="content">
-            <div class="item item-body">
-    <img class="full-image" src="delorean.jpg">
+            <h1 class="title">Nolhaga<span>gatan</span> 41-67</h1>
+              <img src="img/hem.jpg">
+            <div class="item item-body view">
+
     <p>
       This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
       the content is from a card-body consisting of an image and paragraph text. The footer
@@ -79,7 +82,7 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="styrelse.html" >
+      <script type="text/ng-template" id="styrelse.html">
         <ion-view view-title="styrelse page title">
           <ion-content class="styrelse">
 
@@ -150,7 +153,7 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="contact.html" >
+      <script type="text/ng-template" id="contact.html">
         <ion-view view-title="contact page title">
           <ion-content class="padding">
 
@@ -173,63 +176,64 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="infoblad.html" >
+      <script type="text/ng-template" id="infoblad.html">
         <ion-view view-title="infoblad page title">
-          <ion-content class="padding" ng-controller="infoblad">
+          <ion-content class="infoblad" ng-controller="infoblad">
 
 
 
-            <ion-slide-box>
+            <ion-slide-box class="infoblad">
               <ion-slide>
-                 <div class = "box box2">
+                 <div class="box box2">
                     <h1>Infoblad</h1>
                     <p>Om infobladet</p>
                  </div>
               </ion-slide>
 
-   <ion-slide >
-      <div class = "box box1" ng-controller="AppCtrl">
-<button class = "button button-icon icon ion-navicon" ng-click="addInfo()">INFO</button>
+   <ion-slide>
+      <div class="box box1">
+        <div ng-repeat="info in newInfo">
+        <h1>{{info.header}}</h1>
+        <p>{{info.infotext1}}</p>
 
-         <h1>1{{infoblad.header}}</h1>
-         <p>2{{infoblad.infotext1}}</p>
       </div>
+<button class="button icon ion-locked" ng-click="openn()">Update</button>
+      <div class="form" ng-show="visa">
+
+          <div class="col"><input type="text" placeholder="header1" ng-model="infoblad.header"></div>
+          <div class="col"><textarea type="text" placeholder="infotext1" rows="10" ng-model="infoblad.infotext1"></textarea></div>
+          <button ng-click="update(); openn()">skicka</button>
+
+      </div>
+
+    </div>
    </ion-slide>
 
    <ion-slide>
       <div class = "box box2">
-         <h1>Info 2</h1>
-         <p>Lorem ipsum dolor sit amet,
-           consectetuer adipiscing elit.
-           Donec odio. Quisque volutpat mattis eros.
-           Nullam malesuada erat ut turpis.
-           Suspendisse urna nibh, viverra non,
-           semper suscipit, posuere a, pede.</p>
+        <div ng-repeat="info in newInfo">
+         <h1>{{info.header2}}</h1>
+         <p>{{info.infotext2}}</p>
       </div>
+    </div>
    </ion-slide>
 
    <ion-slide>
-      <div class = "box box3">
-         <h1>info 3</h1>
-         <p>Lorem ipsum dolor sit amet,
-           consectetuer adipiscing elit.
-           Donec odio. Quisque volutpat mattis eros.
-           Nullam malesuada erat ut turpis.
-           Suspendisse urna nibh, viverra non,
-           semper suscipit, posuere a, pede.</p>
-      </div>
+     <div class = "box box2">
+       <div ng-repeat="info in newInfo">
+        <h1>{{info.header3}}</h1>
+        <p>{{info.infotext3}}</p>
+     </div>
+   </div>
     </ion-slide>
 
     <ion-slide>
-      <div class = "box box3">
-         <h1>Info 4</h1>
-         <p>Lorem ipsum dolor sit amet,
-           consectetuer adipiscing elit.
-           Donec odio. Quisque volutpat mattis eros.
-           Nullam malesuada erat ut turpis.
-           Suspendisse urna nibh, viverra non,
-           semper suscipit, posuere a, pede.</p>
+      <div class = "box box2">
+        <div ng-repeat="info in newInfo">
+         <h1>{{info.header4}}</h1>
+         <p>{{info.infotext2}}</p>
       </div>
+    </div>
    </ion-slide>
 
 </ion-slide-box>
@@ -241,7 +245,7 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="garage.html" >
+      <script type="text/ng-template" id="garage.html">
         <ion-view view-title="garage page title">
           <ion-content class="padding">
             Garage
@@ -276,7 +280,7 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="hyr.html" >
+      <script type="text/ng-template" id="hyr.html">
         <ion-view view-title="hyr page title">
           <ion-content class="padding">
             <div class="list card">
@@ -340,7 +344,7 @@
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="planer.html" >
+      <script type="text/ng-template" id="planer.html">
         <ion-view view-title="planer page title">
           <ion-content class="padding">
             Planer och pågoende projekt
@@ -370,7 +374,7 @@ This is a basic Card which contains an item that has wrapping text.
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="helgus.html" >
+      <script type="text/ng-template" id="helgus.html">
         <ion-view view-title="helgus page title">
           <ion-content class="padding">
             <div class="list card">
@@ -400,13 +404,13 @@ This is a basic Card which contains an item that has wrapping text.
         </ion-view>
       </script>
 
-      <script type="text/ng-template" id="vader.html" >
+      <script type="text/ng-template" id="vader.html">
         <ion-view  view-title="vader page title">
           <ion-content  ng-class="bild()">
             <div ng-controller="vader" data-ng-init="loadData(); regn()">
 
               <ion-side-menu  ng-repeat="data in timeseries" side="right">
-              <ion-list >
+              <ion-list>
                 <list-item >
                     <h3 ng-click="v1()">Idag</h3>
                     <div ng-class="bild()" ng-show="visa1">
@@ -451,14 +455,14 @@ This is a basic Card which contains an item that has wrapping text.
 
 
 
-<div class="bar bar-footer bar-dark">
+<div class="bar bar-footer">
   <i ui-sref="contact" class="icon ion-email"></i>
   <i ui-sref="start" class="icon ion-home"></i>
   <i ui-sref="vader" class="icon ion-umbrella"></i>
 </div>
 
 
-  </ion-side-menu-content>
+  </ion-nav-view></ion-side-menu-content>
 
     <ion-side-menu side="left">
       <ion-list>
@@ -467,38 +471,38 @@ This is a basic Card which contains an item that has wrapping text.
       </ion-item>
       </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="start">Home</ion-item>
+          <ion-item menu-close="" ui-sref="start">Home</ion-item>
         </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="styrelse">Styrelse</ion-item>
+          <ion-item menu-close="" ui-sref="styrelse">Styrelse</ion-item>
+        </ion-list>
+        <ion-list ng-controller="infoblad">
+          <ion-item menu-close="" ui-sref="infoblad" ng-click="add()">Infoblad</ion-item>
         </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="infoblad">Infoblad</ion-item>
+          <ion-item menu-close="" ui-sref="garage">Garage</ion-item>
         </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="garage">Garage</ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item menu-close ui-sref="hyr">Hyr</ion-item>
+          <ion-item menu-close="" ui-sref="hyr">Hyr</ion-item>
         </ion-list>
         <ion-list>
 
-          <ion-item menu-close ui-sref="contact">Kontakt</ion-item>
+          <ion-item menu-close="" ui-sref="contact">Kontakt</ion-item>
         </ion-list>
 
         <ion-list>
-          <ion-item menu-close ui-sref="planer">Planer</ion-item>
+          <ion-item menu-close="" ui-sref="planer">Planer</ion-item>
         </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="helgus">Helgus</ion-item>
+          <ion-item menu-close="" ui-sref="helgus">Helgus</ion-item>
         </ion-list>
         <ion-list>
-          <ion-item menu-close ui-sref="vader" id="g">Väder</ion-item>
+          <ion-item menu-close="" ui-sref="vader" id="g">V&#xE4;der</ion-item>
         </ion-list>
       </ion-side-menu>
 </ion-side-menus>
 
-</ion-nav-view>
+
 
 
   </body>

@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Sigmar+One|Varela+Round|Comfortaa:400,700);
+.blue { color: 'blue'; }
+
+.red { color: 'red'; }
+
+.transparentblack { color: 'rgba(0,0,0,.50)'; }
+
+.content .view { margin-bottom: 100px; }
+.content .title { position: fixed; top: 150px; color: white; text-align: center; background-color: rgba(0, 0, 0, 0.5); font-size: 2.5em; width: 100%; }
+.content img { padding: 0px; height: 500px; }
+.content p { color: blue; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; }
+
+.title { text-transform: uppercase; font-family: "Sigmar One", cursive; padding: 0px; height: 100px; }
+.title span { background-color: gold; font-family: "Varela Round", sans-serif; text-transform: lowercase; color: black; }
+
+.bar { background-color: gold; border-top: 2px solid black; }
+.bar .icon { font-size: 40px; margin-top: -5px; }
+.bar .ion-email { margin-left: 10px; }
+.bar .ion-home { margin: -5px auto; }
+.bar .ion-umbrella { margin-right: 10px; }
+
+.box { height: 400px; }
+
+.infoblad { /*background: rgba(255,215,0, 1);*/ background: white; }
+.infoblad button { margin-left: 20%; margin-bottom: 10%; background-color: black; color: gold; }
+.infoblad .ion-locked { width: 80%; margin: 0 auto; left: 10%; }
+.infoblad .form { border: 1px solid black; background: gold; margin-top: 10px; }
+.infoblad input { width: 100%; background: black; color: white; }
+.infoblad textarea { width: 100%; background: black; color: white; }
+
+/*# sourceMappingURL=style.css.map */
