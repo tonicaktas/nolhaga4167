@@ -9,11 +9,19 @@ $ff: 'arial';
 
 
 
+
 .content {
+    margin-bottom:10%;
+
+
+
+
     .view {
       margin-bottom:100px;
+      background: grey;
     }
-    .title{
+
+    .title {
       position: fixed;
       top:150px;
       color:white;
@@ -22,17 +30,50 @@ $ff: 'arial';
       font-size: 2.5em;
       width: 100%;
     }
+
+
     img {
       padding:0px;
-
       height:500px;
-    }
-    p {
-    color:blue;
 
-    @include border-radius(5px);
+    }
+
+
+
+    p {
+      color: white;
+    }
+
+
+
+@import "homelistmenu";
+
+
+
+
+    .ion-arrow-down-c {
+      color:gold;
+      font-size:3em;
+      position: fixed;
+      top:430px;
+      text-align: right;
+      padding-right: 10px;
+
+      width: 100%;
+      -webkit-animation: bounce 4s infinite ease-in-out;
+    }
+
+
+@-webkit-keyframes bounce {
+	0%, 20%, 60%, 100%  { -webkit-transform: translateY(0); }
+    40%  { -webkit-transform: translateY(-17px); }
+	80% { -webkit-transform: translateY(-10px); }
   }
+
+
 }
+
+
 
 .title {
   text-transform: uppercase;
@@ -40,6 +81,7 @@ $ff: 'arial';
 
   padding:0px;
   height:100px;
+
     span {
       background-color: gold;
       font-family: $varelaRound;
@@ -48,57 +90,44 @@ $ff: 'arial';
 
   }
 }
+
+
+
 .bar {
   background-color: gold;
   border-top:2px solid black;
+
+
   .icon {
     font-size:40px;
     margin-top:-5px;
   }
+
+
   .ion-email{
     margin-left:10px;
 
   }
+
+
   .ion-home {
     margin:-5px auto ;
   }
+
+
   .ion-umbrella{
     margin-right:10px;
   }
+
+
 }
+
+
+
 
 .box {
   height:400px;
 }
 
-.infoblad {
-  /*background: rgba(255,215,0, 1);*/
-  background: white;
 
-  button {
-    margin-left:20%;
-    margin-bottom:10%;
-    background-color: black;
-    color:gold;
-  }
-  .ion-locked {
-    width:80%;
-    margin: 0 auto;;
-    left:10%;
-  }
-  .form {
-    border:1px solid black;
-    background: gold;
-    margin-top:10px;
-  }
-  input {
-    width:100%;
-    background: black;
-    color:white;
-  }
-  textarea {
-    width:100%;
-    background: black;
-    color:white;
-  }
-}
+@import "infoblad"

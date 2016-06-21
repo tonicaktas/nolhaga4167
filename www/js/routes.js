@@ -2,7 +2,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
 
   $stateProvider.state("start", {
     url: "/",
-    templateUrl: "start.html"
+    templateUrl: "templates/home.html"
   });
 
   $stateProvider.state("infoblad", {

@@ -16,7 +16,7 @@ app.run(function($ionicPlatform) {
 })
 
 
-
+// controller till side-menu
 app.controller('left',function($scope, $ionicSideMenuDelegate, $ionicPopup){
   $scope.toggleLeft = function() {
     $ionicSideMenuDelegate.toggleLeft()
@@ -24,29 +24,10 @@ app.controller('left',function($scope, $ionicSideMenuDelegate, $ionicPopup){
   $scope.toggleRight = function() {
     $ionicSideMenuDelegate.toggleRight()
   }
-  /*$scope.showAlert = function() {
-   var alertPopup = $ionicPopup.show({
-     title: 'Updatera Infoblad',
-     template: '<input type = "text" placeholder="header1" ng-model ="info.header1"><br><textarea placeholder="infotext1" type="text" ng-model="info.infotext1">',
-     buttons: [
-            { text: 'Cancel' }, {
-               text: '<b>Updatera</b>',
-               type: 'button-positive',
-                  onTap: function(e) {
 
-                     if (!$scope.data.model) {
-                        //don't allow the user to close unless he enters model...
-                           e.preventDefault();
-                     } else {
-                        return $scope.data.model;
-                     }
-                  }
-            }
-         ]
-   });
- };*/
 })
 
+// controler till väder api
 app.controller('vader', function($scope, $http){
   $scope.datas = ['empty list'];
   $scope.timeseries = [];
@@ -122,6 +103,7 @@ app.controller('vader', function($scope, $http){
 
 });
 
+// controller som komunicerar med db
 app.controller('infoblad',function($scope, $http, $ionicSlideBoxDelegate){
   //här
   $http.get('http://localhost:8000/infoblad')
@@ -137,6 +119,8 @@ app.controller('infoblad',function($scope, $http, $ionicSlideBoxDelegate){
         $scope.visa = !$scope.visa;
 };
 
+
+// funktion som ska refresha sidan när man uppdaterar den(funkar ej)
 var refresha = function() {	// kör en refresh page när man klickar på button så att input data hamnar på sidan
 $http.get('http://localhost:8000/infoblad/').success(function(response){
 
